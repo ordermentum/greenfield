@@ -100,11 +100,7 @@ Having a good guideline for creating commits and sticking to it makes working wi
 * For an example of how we handle environment variables, look here [https://github.com/ordermentum/microservice-boilerplate/config/index.js](https://github.com/ordermentum/microservice-boilerplate/config/index.js)
 
 ### 3.1 Consistent dev environments:
-* Set `engines` in `package.json` to specify the version of node your project works on.
-* Additionally, use `nvm` and create a  `.nvmrc`  in your project root. Don't forget to mention it in the documentation
-* You can also use a `preinstall` script that checks node and npm versions
-* Use Docker images provided it doesn't make things more complicated
-* Use local modules instead of using globally installed modules
+* Use Docker images and docker-compose files to define your development environment. This way everyone on the project is consistent.
 
 ----
 
