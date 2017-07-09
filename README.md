@@ -112,10 +112,7 @@ Before using a package, check its npm page and GitHub page. Look for the number 
 * Pay attention to Greenkeeper to see if any of your deps have been updated, have security issues, etc.
 
 ### 4.1 Consistent dependencies:
-* Use `package-lock.json` on `npm@5` or higher
-* For older versions of `npm`, use `—save --save-exact` when installing a new dependency and create `npm-shrinkwrap.json` before publishing.
-* Alternatively you can use `Yarn` and make sure to mention it in `README.md`. Your lock file and `package.json` should have the same versions after each dependency update.
-* Read more here: [package-locks | npm Documentation](https://docs.npmjs.com/files/package-locks)
+* Use yarn.
 
 ----
 
