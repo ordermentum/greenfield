@@ -36,7 +36,7 @@ We use [Feature-branch-workflow](https://www.atlassian.com/git/tutorials/compari
 * Update your feature branch with latest changes from develop by rebasing ([More info](https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing))
     ```sh
     git checkout <branchname>
-    git rebase -i origin/develop
+    git rebase origin/develop
     ```
 * If you don’t meet conflicts skip this step. If you have conflicts, resolve them either using your code editor, or the [CLI](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/)  , and then continue rebasing
     ```sh
@@ -60,7 +60,7 @@ There are a set of rules to keep in mind:
 * Perform work in a feature branch.
 * Make pull requests to `develop`
 * Never push into `develop` or `master` branch.
-* Update your `develop` and do a interactive rebase before pushing your feature and making a Pull Request
+* Update your `develop` and do a  rebase before pushing your feature and making a Pull Request
 * Resolve potential conflicts while rebasing and before making a Pull Request
 * Delete local and remote feature branches after merging.
 * Before making a Pull Request, make sure your feature branch builds successfully and passes all tests (including code style checks).
