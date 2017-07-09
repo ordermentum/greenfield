@@ -117,11 +117,8 @@ Before using a package, check its npm page and GitHub page. Look for the number 
 ----
 
 ## 5. Testing <a name="testing"></a>
-* Have a test mode environment if needed.
-* Place your test files next to the tested modules using `*.test.js` or `*.spec.js` naming convention, like `module_name.spec.js`
-* Put your additional test files into a separate test folder to avoid confusion.
+* Put your test files in a `test` folder with a structure that mirrors the `src` folder eg: [https://github.com/ordermentum/microservice-boilerplate/test](https://github.com/ordermentum/microservice-boilerplate/test)
 * Write testable code, avoid side effects, extract side effects, write pure functions
-* Don’t write too many tests to check types, instead use a static type checker
 * Run tests locally before making any pull requests to `develop`.
 * Document your tests, with instructions.
 
