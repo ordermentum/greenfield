@@ -30,12 +30,10 @@ We use [Feature-branch-workflow](https://www.atlassian.com/git/tutorials/compari
     ```
 * Sync with remote to get changes you’ve missed
     ```sh
-    git checkout develop
-    git pull -r
+    git fetch
     ```
 * Update your feature branch with latest changes from develop by rebasing ([More info](https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing))
     ```sh
-    git checkout <branchname>
     git rebase origin/develop
     ```
 * If you don’t meet conflicts skip this step. If you have conflicts, resolve them either using your code editor, or the [CLI](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/)  , and then continue rebasing
@@ -47,7 +45,7 @@ We use [Feature-branch-workflow](https://www.atlassian.com/git/tutorials/compari
     ```
 * Push your branch. Rebase will change history, so you'll have to use `-f` to force changes into the remote branch. If someone else is working on your branch, use the less destructive `--force-with-lease` ([Here is why](https://developer.atlassian.com/blog/2015/04/force-with-lease/)).
     ```sh
-    git push -f origin/<branchname>
+    git push -f <branchname>
     ```
 * Make a Pull Request.
 * Pull request will be accepted, merged, and closed by reviewer.
