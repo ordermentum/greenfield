@@ -93,46 +93,32 @@ Having a good guideline for creating commits and sticking to it makes working wi
 ----
 
 ## 3. Environments <a name="environments"></a>
-* Depending on project size, define separate `development`, `test` and `production` environments.
-* Load your deployment specific configurations from environment variables and never add them to the codebase as constants, [look at this sample](./config.sample.js).
-*  Your config should be correctly separated from the app internals as if the codebase could be made public at any moment.  Use `.env` files to store your variables and add them to `.gitignore` to be excluded from your code base because of course, you want the environment to provide them. Instead commit a `.env.example`  which serves as a guide for developers to know which environment variables the project needs. It is important to remember that this setup should only be used for development. For production you should still set your environment variables in the standard way.
-* It’s recommended to validate environment variables before your app starts.  [Look at this sample](./configWithTest.sample.js) using `joi` to validate provided values.
+* We always define separate `development`, `test` and `production` environments.
+* Load your deployment specific configurations from environment variables and never add them to the codebase as constants.
+* Your config should be correctly separated from the app internals as if the codebase could be made public at any moment.
+* Always validate environment variables before your app starts.
+* For an example of how we handle environment variables, look here [https://github.com/ordermentum/microservice-boilerplate/config/index.js](https://github.com/ordermentum/microservice-boilerplate/config/index.js)
 
 ### 3.1 Consistent dev environments:
-* Set `engines` in `package.json` to specify the version of node your project works on.
-* Additionally, use `nvm` and create a  `.nvmrc`  in your project root. Don't forget to mention it in the documentation
-* You can also use a `preinstall` script that checks node and npm versions
-* Use Docker images provided it doesn't make things more complicated
-* Use local modules instead of using globally installed modules
+* Use Docker images and docker-compose files to define your development environment. This way everyone on the project is consistent.
 
 ----
 
 ## 4. Dependencies <a name="dependencies"></a>
-Before using a package, check its GitHub. Look for the number of open issues, daily downloads and number of contributors as well as the date the package was last updated.
+Before using a package, check its npm page and GitHub page. Look for the number of open issues, daily downloads and number of contributors as well as the date the package was last updated.
 
+* Check to see if the dependency has a good, mature version release frequency with a large number of maintainers.
 * If less known dependency is needed, discuss it with the team before using it.
-* Keep track of your currently available packages: e.g., `npm ls --depth=0` ([documentation](https://docs.npmjs.com/cli/ls)).
-* See if any of your packages have become unused or irrelevant: `depcheck` ([documentation](https://www.npmjs.com/package/depcheck)).
-* Check download statistics to see if the dependency is heavily used by the community: `npm-stat` ([documentation](https://npm-stat.com/)).
-* Check to see if the dependency has a good, mature version release frequency with a large number of maintainers: e.g., `npm view async` ([documentation](https://docs.npmjs.com/cli/view)).
-* Always make sure your app works with the latest versions of dependencies without breaking: `npm outdated` ([documentation](https://docs.npmjs.com/cli/outdated)).
-* Check to see if the package has known security vulnerabilities with, e.g., [Snyk](https://snyk.io/test?utm_source=risingstack_blog).
-
+* Pay attention to Greenkeeper to see if any of your deps have been updated, have security issues, etc.
 
 ### 4.1 Consistent dependencies:
-* Use `package-lock.json` on `npm@5` or higher
-* For older versions of `npm`, use `—save --save-exact` when installing a new dependency and create `npm-shrinkwrap.json` before publishing.
-* Alternatively you can use `Yarn` and make sure to mention it in `README.md`. Your lock file and `package.json` should have the same versions after each dependency update.
-* Read more here: [package-locks | npm Documentation](https://docs.npmjs.com/files/package-locks)
+* Use yarn.
 
 ----
 
 ## 5. Testing <a name="testing"></a>
-* Have a test mode environment if needed.
-* Place your test files next to the tested modules using `*.test.js` or `*.spec.js` naming convention, like `module_name.spec.js`
-* Put your additional test files into a separate test folder to avoid confusion.
+* Put your test files in a `test` folder with a structure that mirrors the `src` folder eg: [https://github.com/ordermentum/microservice-boilerplate/test](https://github.com/ordermentum/microservice-boilerplate/test)
 * Write testable code, avoid side effects, extract side effects, write pure functions
-* Don’t write too many tests to check types, instead use a static type checker
 * Run tests locally before making any pull requests to `develop`.
 * Document your tests, with instructions.
 
